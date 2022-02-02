@@ -34,6 +34,7 @@
 	<br> 1 7 11
 	<br> output:
 	<br> 1+7+11 is 19
+	
 <br> 5. Write a program to find the square root of a number.
 	<br> float input();
 	<br> float my_sqrt(float n);
