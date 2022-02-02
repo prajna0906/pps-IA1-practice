@@ -1,0 +1,76 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000001282 in main at main.c:36
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:36
+36      n1=input();
+(gdb) step
+input () at main.c:4
+4       {
+(gdb) next
+6            printf("Enter a number:\n");
+(gdb) next
+Enter a number:
+7            scanf("%d",&n);
+(gdb) next
+2
+8            return n;
+(gdb) next
+9       }
+(gdb) next
+main () at main.c:37
+37      n2=input();
+(gdb) step
+input () at main.c:4
+4       {
+(gdb) next
+6            printf("Enter a number:\n");
+(gdb) next
+Enter a number:
+7            scanf("%d",&n);
+(gdb) next
+3
+8            return n;
+(gdb) next
+9       }
+(gdb) next
+main () at main.c:38
+38      n3=input();
+(gdb) step
+input () at main.c:4
+4       {
+(gdb) next
+6            printf("Enter a number:\n");
+(gdb) next
+Enter a number:
+7            scanf("%d",&n);
+(gdb) next
+4
+8            return n;
+(gdb) next
+9       }
+(gdb) next
+main () at main.c:39
+39      large=cmp(n1,n2,n3);
+(gdb) step
+cmp (a=2020016660, b=-1018748928, c=4) at main.c:11
+11      {
+(gdb) next
+12         if(a>b&&a>c)
+(gdb) next
+16         else if(b>c)
+(gdb) next
+22              return c;
+(gdb) next
+25      }
+(gdb) next
+main () at main.c:40
+40      output(n1,n2,n3,large);
+(gdb) step
+output (a=2, b=3, c=4, large=-134508600) at main.c:29
+29      {
+(gdb) next
