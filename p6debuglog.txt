@@ -1,0 +1,88 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+
+1       breakpoint     keep y   0x0000000000001327 in main at main.c:33
+
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:33
+33        input_two_string(a, b);
+(gdb) step
+input_two_string (
+    a=0x9c0000009c0 <error: Cannot access memory at address 0x9c0000009c0>, 
+    b=0x9c0000009c0 <error: Cannot access memory at address 0x9c0000009c0>)
+    at main.c:3
+3       {
+(gdb) next
+4         printf("enter the strings\n");
+(gdb) next
+enter the strings
+5         scanf("%s%s", a, b);
+(gdb) next
+hell
+hello
+6       }
+(gdb) next
+main () at main.c:34
+34        int result = strcmp(a, b);
+(gdb) step
+strcmp (
+    a=0x5555555551e5 <input_two_string+60> "\220\311\303\363\017\036\372UH\211\345H\211}\350H\211u\340\307", <incomplete sequence \374>, b=0x0) at main.c:8
+8       {
+(gdb) next
+9         for (int i = 0; a[i] != '\0' ||  b[i] != '\0'; i++)
+(gdb) next
+11          if (a[i] > b[i])
+(gdb) next
+15          else if (a[i] < b[i])
+(gdb) next
+9         for (int i = 0; a[i] != '\0' ||  b[i] != '\0'; i++)
+(gdb) next
+11          if (a[i] > b[i])
+(gdb) next
+15          else if (a[i] < b[i])
+(gdb) next
+9         for (int i = 0; a[i] != '\0' ||  b[i] != '\0'; i++)
+(gdb) next
+11          if (a[i] > b[i])
+(gdb) next
+15          else if (a[i] < b[i])
+(gdb) next
+9         for (int i = 0; a[i] != '\0' ||  b[i] != '\0'; i++)
+(gdb) next
+11          if (a[i] > b[i])
+(gdb) next
+15          else if (a[i] < b[i])
+(gdb) next
+9         for (int i = 0; a[i] != '\0' ||  b[i] != '\0'; i++)
+(gdb) next
+11          if (a[i] > b[i])
+(gdb) next
+15          else if (a[i] < b[i])
+(gdb) next
+17            return -1;
+(gdb) next
+20      }
+(gdb) next
+main () at main.c:35
+35        output(a, b, result);
+(gdb) step
+output (a=0x4ffffeaf0 <error: Cannot access memory at address 0x4ffffeaf0>, 
+    b=0x7fffffffeb60 "hello", result=32767) at main.c:22
+22      {
+(gdb) next
+23        if (result == 1)
+(gdb) next
+25        if (result == -1)
+(gdb) next
+26          printf("%s is greater than %s", b, a);
+(gdb) next
+27        if (result == 0)
+(gdb) next
+29      }
+(gdb) next
+main () at main.c:36
+36        return 0;
