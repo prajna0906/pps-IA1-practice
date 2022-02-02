@@ -1,0 +1,96 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:54
+54          int n = get_n();
+(gdb) step
+get_n () at main.c:8
+8       {
+(gdb) next
+10          printf("enter the number of complex number\n");
+(gdb) next
+enter the number of complex number
+11          scanf("%d",&n);
+(gdb) next
+2
+12          return n;
+(gdb) next
+13      }
+(gdb) next
+main () at main.c:55
+55          complex c[n],result;
+(gdb) step
+56          input_n_complex(n,c);
+(gdb) step
+input_n_complex (n=32767, c=0x7fffffffeb80) at main.c:22
+22      {
+(gdb) next
+24          for (i=0;i<n;i++)
+(gdb) next
+25          c[i]=input_complex();
+(gdb) next
+enter the complex number
+2
+2
+24          for (i=0;i<n;i++)
+(gdb) next
+25          c[i]=input_complex();
+(gdb) next
+enter the complex number
+2
+2
+24          for (i=0;i<n;i++)
+(gdb) next
+26      }
+(gdb) next
+main () at main.c:57
+57          result=add_n_complex(n,c);
+(gdb) step
+add_n_complex (n=2, c=0x5555555550c0 <_start>) at main.c:35
+35      {
+(gdb) next
+38          r.real=0;
+(gdb) next
+39          r.imaginary=0;
+(gdb) next
+40          for(i=0;i<n;i++)
+(gdb) next
+41          r=add(r,c[i]);
+(gdb) next
+40          for(i=0;i<n;i++)
+(gdb) next
+41          r=add(r,c[i]);
+(gdb) next
+40          for(i=0;i<n;i++)
+(gdb) next
+43          return r;
+(gdb) next
+44      }
+(gdb) next
+main () at main.c:58
+58          output (n,c,result);
+(gdb) step
+output (n=2, c=0x7fffffffeb70, result=...) at main.c:46
+46      {
+(gdb) next
+48      for(i=0;i<n;i++)
+(gdb) next
+49      printf("%.2f+ %.2fi\n",c[i].real,c[i].imaginary);
+(gdb) next
+2.00+ 2.00i
+48      for(i=0;i<n;i++)
+(gdb) next
+49      printf("%.2f+ %.2fi\n",c[i].real,c[i].imaginary);
+(gdb) next
+2.00+ 2.00i
+48      for(i=0;i<n;i++)
+(gdb) next
+50      printf("is %.2f + %.2fi\n",result.real,result.imaginary);
+(gdb) next
+is 4.00 + 4.00i
+51      }
+(gdb) next
+main () at main.c:59
+59          return 0;
+(gdb) 
