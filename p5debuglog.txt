@@ -1,0 +1,84 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000000012aa in main at main.c:31
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:31
+31              n=input();
+(gdb) step
+input () at main.c:5
+5       {
+(gdb) next
+7         printf ("enter a number: \n ");
+(gdb) next
+enter a number: 
+8         scanf ("%f",&n);
+(gdb) next
+ 2
+9         return n;
+(gdb) next
+10      }
+(gdb) next
+main () at main.c:32
+32              res= my_sqrt(n);
+(gdb) step
+my_sqrt (n=3.0611365e-41) at main.c:12
+12      {
+(gdb) next
+14        sqrt_result = n/2;
+(gdb) next
+15        temp =0;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+18         { temp = sqrt_result;
+(gdb) next
+19           sqrt_result = ((n/temp) + temp)/2;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+18         { temp = sqrt_result;
+(gdb) next
+19           sqrt_result = ((n/temp) + temp)/2;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+18         { temp = sqrt_result;
+(gdb) next
+19           sqrt_result = ((n/temp) + temp)/2;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+18         { temp = sqrt_result;
+(gdb) next
+19           sqrt_result = ((n/temp) + temp)/2;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+18         { temp = sqrt_result;
+(gdb) next
+19           sqrt_result = ((n/temp) + temp)/2;
+(gdb) next
+17        while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) next
+22      return sqrt_result;
+(gdb) next
+23      }
+(gdb) next
+main () at main.c:33
+33              output (n, res);
+(gdb) step
+output (n=1.41421354, sqrt_result=1.41421354) at main.c:25
+25      {
+(gdb) next
+26      printf (" The sqrt of given number %f is %f \n ", n, sqrt_result );
+(gdb) next
+ The sqrt of given number 2.000000 is 1.414214 
+27      }
+(gdb) next
+main () at main.c:35
+35              return 0;
+(gdb) 
