@@ -2,24 +2,41 @@ Reading symbols from a.out...
 (gdb) run
 Starting program: /home/a.out 
 
-Breakpoint 1, main () at main.c:22
-22          int x = 0, y = 0, sum;
+Breakpoint 1, main () at main.c:20
+20          int x = 0, y = 0, sum;
+(gdb) step
+21          input (&x, &y);
+(gdb) step
+input (a=0x55555555530d <__libc_csu_init+77>, b=0x7fffffffebc6) at main.c:4
+4       {
 (gdb) next
-23          input (&x, &y);
+5         printf ("enter two numbers\n");
 (gdb) next
 enter two numbers
-2 3
-24          add (x, y, &sum);
+6         scanf ("%d%d", a, b);
 (gdb) next
-25          output (x, y, sum);
+2
+2
+7       }
 (gdb) next
-sum of 2+3 is 5
-26          return 0;
-(gdb) until
-27        }
-(gdb) until
-__libc_start_main (main=0x55555555523f <main>, argc=1, argv=0x7fffffffecd8, 
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7fffffffecc8) at ../csu/libc-start.c:342
-342     ../csu/libc-start.c: No such file or directory.
-(gdb) 
+main () at main.c:22
+22          add (x, y, &sum);
+(gdb) step
+add (a=32767, b=-5172, sum=0x7fffffffebd0) at main.c:10
+10      {
+(gdb) next
+11        *sum = a + b;
+(gdb) next
+12      }
+(gdb) next
+main () at main.c:23
+23          output (x, y, sum);
+(gdb) step
+output (a=2, b=2, sum=32767) at main.c:15
+15      {
+(gdb) next
+16        printf ("sum of %d+%d is %d\n", a, b, sum);
+(gdb) next
+sum of 2+2 is 4
+17      }
+(gdb) next
