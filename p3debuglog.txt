@@ -1,0 +1,94 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000000012b7 in main at main.c:32
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:32
+32      n = input_n ();  
+(gdb) step
+input_n () at main.c:5
+5       {
+(gdb) next
+7       printf ("Enter a number:\n");  
+(gdb) next
+Enter a number:
+8       scanf ("%d", &n);
+(gdb) next
+5
+9       return n;
+(gdb) next
+10      }
+(gdb) next
+main () at main.c:33
+33      sum = sum_n (n);
+(gdb) step
+sum_n (n=21845) at main.c:12
+12      {
+(gdb) next
+13      int sum = 0, i; 
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+16      sum = sum + i;
+(gdb) next
+14      for (i = 0; i <= n; i++)
+(gdb) next
+18      return sum;
+(gdb) next
+19      }
+(gdb) next
+main () at main.c:34
+34      output (n, sum);
+(gdb) step
+output (n=5, sum=1431654888) at main.c:21
+21      { 
+(gdb) next
+22      printf ("the sum of:\n");
+(gdb) next
+the sum of:
+24      for (i = 1; i < n; i++)
+(gdb) next
+25      printf ("%d +", i);
+(gdb) next
+24      for (i = 1; i < n; i++)
+(gdb) next
+25      printf ("%d +", i);
+(gdb) next
+24      for (i = 1; i < n; i++)
+(gdb) next
+25      printf ("%d +", i);
+(gdb) next
+24      for (i = 1; i < n; i++)
+(gdb) next
+25      printf ("%d +", i);
+(gdb) next
+24      for (i = 1; i < n; i++)
+(gdb) next
+26      printf ("%d", n );
+(gdb) next
+27      printf ("numbers is %d",sum);
+(gdb) next
+28      }
