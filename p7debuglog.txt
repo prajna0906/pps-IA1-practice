@@ -1,0 +1,67 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:38
+38        a=input_complex();
+(gdb) step
+input_complex () at main.c:11
+11      {
+(gdb) next
+13        printf ("Enter complex number\n");
+(gdb) next
+Enter complex number
+14        scanf ("%f%f", &x.real, &x.imaginary);
+(gdb) next
+2
+2
+15        return x;
+(gdb) next
+17      }
+(gdb) next
+main () at main.c:39
+39        b=input_complex ();
+(gdb) step
+input_complex () at main.c:11
+11      {
+(gdb) next
+13        printf ("Enter complex number\n");
+(gdb) next
+Enter complex number
+14        scanf ("%f%f", &x.real, &x.imaginary);
+(gdb) next
+2
+2
+15        return x;
+(gdb) next
+17      }
+(gdb) next
+main () at main.c:40
+40        c = add (a, b);
+(gdb) step
+add (a=..., b=...) at main.c:21
+21      {
+(gdb) next
+23        c.real = a.real + b.real;
+(gdb) next
+24        c.imaginary = a.imaginary + b.imaginary;
+(gdb) next
+25        return c;
+(gdb) next
+26      }
+(gdb) next
+main () at main.c:41
+41        output (a, b, c);
+(gdb) step
+output (a=..., b=..., c=...) at main.c:30
+30      {
+(gdb) next
+31        printf ("%f+%fi+%f+%fi = %f+%fi\n", a.real, a.imaginary, b.real, b.imaginary, c.real, c.imaginary);
+(gdb) next
+2.000000+2.000000i+2.000000+2.000000i = 4.000000+4.000000i
+32      }
+(gdb) Quit
+
+(gdb) Quit
+
+(gdb) 
