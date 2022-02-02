@@ -1,0 +1,89 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000001364 in main at main.c:33
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:33
+33        n = input_array_size ();
+(gdb) step
+input_array_size () at main.c:3
+3       {
+(gdb) next
+5         printf ("Enter array size\n");
+(gdb) next
+Enter array size
+6         scanf ("%d", &n);
+(gdb) next
+2
+7         return n;
+(gdb) next
+8       }
+(gdb) next
+main () at main.c:34
+34        int a[n];
+(gdb) step
+35        input_array (n, a);
+(gdb) step
+input_array (n=32767, a=0x5555555550c0 <_start>) at main.c:10
+10      {
+(gdb) next
+12        printf ("Enter the %d elements array \n", n);
+(gdb) next
+Enter the 2 elements array 
+13        for (i = 0; i < n; i++)
+(gdb) next
+14          scanf ("%d", &a[i]);
+(gdb) next
+2
+13        for (i = 0; i < n; i++)
+(gdb) next
+14          scanf ("%d", &a[i]);
+(gdb) next
+2
+13        for (i = 0; i < n; i++)
+(gdb) next
+15      }
+(gdb) next
+main () at main.c:36
+36        sum = sum_n_arrays (n, a);
+(gdb) step
+sum_n_arrays (n=2, a=0x7fffffffeb80) at main.c:17
+17      {
+(gdb) next
+18        int i, sum = 0;
+(gdb) next
+19        for (i = 0; i < n; i++)
+(gdb) next
+20          sum = sum + a[i];
+(gdb) next
+19        for (i = 0; i < n; i++)
+(gdb) next
+20          sum = sum + a[i];
+(gdb) next
+19        for (i = 0; i < n; i++)
+(gdb) next
+21        return sum;
+(gdb) next
+22      }
+(gdb) next
+main () at main.c:37
+37        out_put (n, a, sum);
+(gdb) step
+out_put (n=2, a=0x7fffffffeb80, sum=-4912) at main.c:24
+24      {
+(gdb) next
+26        for (i = 0; i < n - 1; i++)
+(gdb) next
+27          printf ("%d+", a[i]);
+(gdb) next
+26        for (i = 0; i < n - 1; i++)
+(gdb) next
+28        printf ("%dis%d", a[n - 1], sum);
+(gdb) next
+29      }
+(gdb) next
+main () at main.c:38
+38        return 0;
