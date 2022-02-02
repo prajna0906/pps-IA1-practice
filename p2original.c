@@ -9,8 +9,6 @@ int input()
 }
 int cmp(int a, int b, int c)
 {
-   int cmp(int a, int b, int c)
-{
    if(a>b&&a>c)
        {
         return a;
